@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+ï»¿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using SalesWebMVC.Data;
 
 namespace SalesWebMVC
 {
@@ -20,13 +22,16 @@ namespace SalesWebMVC
 
         public IConfiguration Configuration { get; }
 
-        // Configura os servicos da aplicação. This method gets called by the runtime. Use this method to add services to the container.
+        // Configura os servicos da aplicaï¿½ï¿½o. This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<SalesWebMVCContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SalesWebMVCContext")));
         }
 
-        // Configura questões relacionadas ao comportamento das requisições (Pipeline http). This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // Configura questï¿½es relacionadas ao comportamento das requisiï¿½ï¿½es (Pipeline http). This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

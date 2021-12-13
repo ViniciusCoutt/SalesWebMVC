@@ -9,15 +9,15 @@ using SalesWebMVC.Data;
 namespace SalesWebMVC.Migrations
 {
     [DbContext(typeof(SalesWebMVCContext))]
-    [Migration("20211210214509_MoreEntities")]
-    partial class MoreEntities
+    [Migration("20211213191222_UpdateEntities")]
+    partial class UpdateEntities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
-                .HasAnnotation("ProductVersion", "5.0.5");
+                .HasAnnotation("ProductVersion", "5.0.12");
 
             modelBuilder.Entity("SalesWebMVC.Models.Department", b =>
                 {
@@ -45,9 +45,6 @@ namespace SalesWebMVC.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext");
-
                     b.Property<int?>("SellerId")
                         .HasColumnType("int");
 
@@ -58,7 +55,7 @@ namespace SalesWebMVC.Migrations
 
                     b.HasIndex("SellerId");
 
-                    b.ToTable("SalesRecords");
+                    b.ToTable("SalesRecord");
                 });
 
             modelBuilder.Entity("SalesWebMVC.Models.Seller", b =>

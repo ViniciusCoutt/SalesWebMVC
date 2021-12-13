@@ -31,14 +31,17 @@ namespace SalesWebMVC
 
             services.AddDbContext<SalesWebMVCContext>(options =>
                     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+            services.AddScoped<SeedingService>();
         }
 
         // Configura quest�es relacionadas ao comportamento das requisi��es (Pipeline http). This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, SeedingService seedingService)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                seedingService.Seed();
             }
             else
             {

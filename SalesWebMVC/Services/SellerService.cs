@@ -24,6 +24,5 @@ namespace SalesWebMVC.Services
             _context.Add(obj);
             _context.SaveChanges(); 
         }
-
     }
 }

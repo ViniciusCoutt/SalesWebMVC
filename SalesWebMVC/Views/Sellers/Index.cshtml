@@ -1,12 +1,16 @@
 ﻿@model IEnumerable<SalesWebMVC.Models.Seller>
 @{
-    ViewData["Title"] = "Sellers";
+    ViewData["Title"] = "Vendedores";
+    ViewData["CreateBtn"] = "Novo";
+    ViewData["EditBtn"] = "Editar";
+    ViewData["DetailsBtn"] = "Detalhes";
+    ViewData["DeleteBtn"] = "Remover";
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-info">Create New</a>
+    <a asp-action="Create" class="btn btn-info">@ViewData["CreateBtn"]</a>
 </p>
 
 
@@ -45,9 +49,9 @@
                     @Html.DisplayFor(modelItem => item.BaseSalary)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-dark">Edit</a>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary">Details</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-dark">@ViewData["EditBtn"]</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary">@ViewData["DetailsBtn"]</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">@ViewData["DeleteBtn"]</a>
                 </td>
             </tr>
         }

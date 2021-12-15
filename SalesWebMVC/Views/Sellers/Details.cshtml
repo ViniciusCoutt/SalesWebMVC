@@ -1,12 +1,15 @@
 ﻿@model SalesWebMVC.Models.Seller
 @{
     ViewData["Title"] = "Details";
+    ViewData["EditBtn"] = "Editar";
+    ViewData["BackBtn"] = "Voltar";
+    ViewData["Subtitle"] = "Departamento";
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <div>
-    <h4>Seller</h4>
+    <h5>@ViewData["Subtitle"]</h5>
     <hr />
     <dl class="dl-horizontal">
         <dt>

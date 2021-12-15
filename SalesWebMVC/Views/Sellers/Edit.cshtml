@@ -1,12 +1,16 @@
 ﻿@model SalesWebMVC.Models.ViewModels.SellerFormViewModel;
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
+    ViewData["SaveBtn"] = "Salvar";
+    ViewData["BackBtn"] = "Voltar";
+    ViewData["Subtitle"] = "Departamentos";
 }
 
 <h1>@ViewData["Title"]</h1>
 
-<h5>Seller</h5>
+<h5>@ViewData["Subtitle"]</h5>
+
 <hr />
 <div class="row">
     <div class="col-md-5">
@@ -36,8 +40,8 @@
             <div class="form-group">
                 <form asp-action="Edit">
                     <input type="hidden" asp-for="Seller.Id" />
-                    <input type="submit" value="Update" class="btn btn-danger" /> 
-                    <a asp-action="Index" class="btn btn-info">Back</a>
+                    <input type="submit" value="@ViewData["SaveBtn"]" class="btn btn-danger" /> 
+                    <a asp-action="Index" class="btn btn-info">@ViewData["BackBtn"]</a>
                 </form>
             </div>
         </form>

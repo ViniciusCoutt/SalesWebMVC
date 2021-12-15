@@ -10,19 +10,27 @@ namespace SalesWebMVC.Models
         public int Id { get; set; }
 
         [Display(Name = "Nome")]
+        [StringLength(60, MinimumLength = 3, ErrorMessage = "O {0} deve possuir {2} à {1} caracteres")]
+        [Required(ErrorMessage = "{0} é obrigatório")]
 
         public string Name { get; set; }
 
         [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Informe um email válido")]
+        [Required(ErrorMessage = "{0} é obrigatório")]
         public string Email { get; set; }
 
-        [Display(Name = "Data de Nascimento")]
         [DataType(DataType.Date)]
+        [Display(Name = "Data de Nascimento")]
+        [Required(ErrorMessage = "{0} é obrigatório")]
         public DateTime BirthDate { get; set; }
 
+        [Required(ErrorMessage = "{0} é obrigatório")]
+        [Range(100.0, 50000.0, ErrorMessage = "{0} must be from {1} to {2}")]
         [Display(Name = "Salário bruto")]
         [DisplayFormat(DataFormatString = "{0:F2}")]
         public double BaseSalary { get; set; }
+
         public Department Department { get; set; }
         public int DepartmentId { get; set; }   
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();

@@ -3,7 +3,7 @@
     ViewData["Title"] = "Adicionar";
     ViewData["Subtitle"] = "Vendedores";
     ViewData["CreateBtn"] = "Adicionar";
-
+    ViewData["BackBtn"] = "Voltar";
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -39,7 +39,8 @@
                 <span asp-validation-for="Seller.DepartmentId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="@ViewData["CreateBtn"]" class="btn btn-info" />
+                <input type="submit" value="@ViewData["CreateBtn"]" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-info">@ViewData["BackBtn"]</a>
             </div>
         </form>
     </div>

@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-@{
-    ViewData["EditBtn"] = "Editar";
-    ViewData["BackBtn"] = "Voltar";
-    ViewData["Subtitle"] = "Departamento";
-}
 
 <body>
     <header>
@@ -34,11 +29,15 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Sellers" asp-action="Index">Vendedores</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="SalesRecords" asp-action="Index">Vendas</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">Sobre</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a>
                         </li>
+
                     </ul>
                 </div>
             </div>

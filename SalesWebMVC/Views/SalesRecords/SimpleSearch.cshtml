@@ -4,12 +4,9 @@
 @{
     ViewData["Title"] = "Pesquisa simples";
     ViewData["TotalSales"] = "Total de vendas";
-
-        ViewData["SimpleSearch"] = "Pesquisa simples";
-    ViewData["GroupSearch"] = "Pesquisa agrupada";
     ViewData["MinDateLabel"] = "De";
     ViewData["MaxDateLabel"] = "Até";
-    ViewData["SubmitBtn"] = "Pesquisar";
+    ViewData["SubmitBtn"] = "Filtrar";
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -27,7 +24,7 @@
                     <input type="date" class="form-control" name="maxDate" value=@ViewData["maxDate"] />
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Filter</button>
+            <button type="submit" class="btn btn-primary">@ViewData["SubmitBtn"]</button>
         </form>
     </div>
 </nav>
